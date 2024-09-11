@@ -79,6 +79,5 @@ Testing the webserver.
 ![image2](https://github.com/user-attachments/assets/ac412330-f709-4258-bfdb-7fc1712adeaa)
 ![image1](https://github.com/user-attachments/assets/acfc7562-5117-4543-9095-106dd39e0af0)
 
-
 ## RESULT:
 The program for implementing simple webserver is executed successfully.
