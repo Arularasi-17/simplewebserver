@@ -1,5 +1,5 @@
 # EX01 Developing a Simple Webserver
-## Date:
+## Date:10/09/2024
 
 ## AIM:
 To develop a simple webserver to serve html pages and display the configuration details of laptop.
@@ -21,63 +21,72 @@ Serving the HTML pages.
 Testing the webserver.
 
 ## PROGRAM:
+```
+from http.server import HTTPServer, BaseHTTPRequestHandler
+content = """
 <!DOCTYPE html>
 <html>
-   <head>
-      <title>Top Software Companies With Revenue Table</title>
-   </head>
-<body bgcolor="" align="center">
-<table border="3" cellspacing="4" cellpadding="6" height="30" width="70">
-<caption>Top Five Revenue Generating Software Companies</caption>
-   <tr> 
-        <th>Rank</th>
-        <th>Company</th>
-        <th>Sales</th>
-        <th>Nationality</th>
-   </tr> 
-   <tr>
-        <td>1</td>
-        <td>MicroSoft</td>
-        <td>57.9</td>
-        <td>USA</td>
-
-   </tr>
- <tr>
-        <td>2</td>
-        <td>Oracle</td>
-        <td>21.0</td>
-        <td>USA</td>
-
-   </tr>
+<title> Top Software Industry </title>
+<body>
+<table border ="2"  cellspacing ="10" cellpadding = "6" > 
+<caption> TOP FIVE REVENUE GENERATING SOFTWARE COMPANIES </caption>
 <tr>
-        <td>3</td>
-        <td>SAP</td>
-        <td>16.1</td>
-        <td>Germany</td>
+<th> S.No </th>
+<th> Company </th>
+<th> Revenue </th>
+</tr>
 
-   </tr>
 <tr>
-       <td>4</td>
-       <td>Computer Associates</td>
-       <td>4.2</td>
-       <td>USA<td>
-   </tr>
+<td> 1. </td>
+<td> Microsoft </td>
+<td> 65 Billion  </td>
+</tr>
+
 <tr>
-       <td>5</td>
-       <td>Adobe</td>
-       <td>3.4</td>
-       <td>USA<td>
-   </tr>
+<td> 2. </td>
+<td> Oracle </td>
+<td> 29.6 Billion  </td>
+</tr>
 
-       
+<tr>
+<td> 3. </td>
+<td> IBM </td>
+<td> 29.1 Billion  </td>
+</tr> 
+
+<tr>
+<td> 4. </td>
+<td> SAP </td> 
+<td> 6.4 Billion </td>
+</tr> 
+ 
+<tr>
+<td> 5. </td>
+<td> Syamntec </td>
+<td> 5.6 Billion </td>
+</tr>
 
 
+</table>
 </body>
 </html>
+"""
+class myhandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        print("request received")
+        self.send_response(200)
+        self.send_header('content-type', 'text/html; charset=utf-8')
+        self.end_headers()
+        self.wfile.write(content.encode())
+server_address = ('',8000)
+httpd = HTTPServer(server_address,myhandler)
+print("my webserver is running...")
+httpd.serve_forever()
+```
 
 ## OUTPUT:
-![image2](https://github.com/user-attachments/assets/ac412330-f709-4258-bfdb-7fc1712adeaa)
-![image1](https://github.com/user-attachments/assets/acfc7562-5117-4543-9095-106dd39e0af0)
+![image1](https://github.com/user-attachments/assets/0ac06598-ba05-4161-b6dd-49cad882a95d)
+![image2](https://github.com/user-attachments/assets/33471fa5-7945-40cc-a17f-d5ed98a2aff5)
 
 ## RESULT:
-The program for implementing simple webserver is executed successfully.
+The program for implementing simple webserver is executed successfully
